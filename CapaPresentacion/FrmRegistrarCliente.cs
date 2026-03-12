@@ -43,7 +43,7 @@ namespace CapaPresentacion
             {
                 if (this.txtnombre.Text == string.Empty || this.txtapellidos.Text == string.Empty)
                 {
-                    MessageBox.Show("Ingresa kis datos del cliente", "Sistema de ventas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Ingresa los datos del cliente", "Sistema de ventas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {

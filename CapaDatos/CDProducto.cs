@@ -74,8 +74,8 @@ namespace CapaDatos
                 Cmd.Parameters.AddWithValue("@descripcion", prod.Descripcion);
                 Cmd.Parameters.AddWithValue("@f_ingreso", prod.Fingreso);
                 Cmd.Parameters.AddWithValue("@f_vencimiento", prod.Fvencimiento);
-                Cmd.Parameters.AddWithValue("@p_compra", prod.Pcompra);
-                Cmd.Parameters.AddWithValue("@p_venta", prod.Pventa);
+                Cmd.Parameters.AddWithValue("@precio_compra", prod.Pcompra);
+                Cmd.Parameters.AddWithValue("@precio_venta", prod.Pventa);
                 Cmd.Parameters.AddWithValue("@stock", prod.Stock);
                 Cmd.Parameters.AddWithValue("@estado", prod.Estado);
                 Cmd.Parameters.AddWithValue("@idcategoria", prod.Idcategoria);
@@ -96,5 +96,125 @@ namespace CapaDatos
             return resul;
         }
 
+        public string Editar(CDProducto prod)
+        {
+            string resul = "";
+            SqlConnection conexion = new SqlConnection();
+            try
+            {
+                conexion.ConnectionString = Conexion.Conn;
+                conexion.Open();
+                SqlCommand Cmd = new SqlCommand("speditar_producto", conexion);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("@idproducto", prod.Idproducto);
+                Cmd.Parameters.AddWithValue("@codigo", prod.Codigo);
+                Cmd.Parameters.AddWithValue("@nombre", prod.Nombre);
+                Cmd.Parameters.AddWithValue("@descripcion", prod.Descripcion);
+                Cmd.Parameters.AddWithValue("@f_ingreso", prod.Fingreso);
+                Cmd.Parameters.AddWithValue("@f_vencimiento", prod.Fvencimiento);
+                Cmd.Parameters.AddWithValue("@precio_compra", prod.Pcompra);
+                Cmd.Parameters.AddWithValue("@precio_venta", prod.Pventa);
+                Cmd.Parameters.AddWithValue("@stock", prod.Stock);
+                Cmd.Parameters.AddWithValue("@estado", prod.Estado);
+                Cmd.Parameters.AddWithValue("@idcategoria", prod.Idcategoria);
+                resul = Cmd.ExecuteNonQuery() == 1 ? "OK" : "No se pudo actualizar el registro";
+            }
+            catch (Exception ex)
+            {
+                resul = ex.Message;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+            return resul;
+
+        }
+
+        public string Eliminar(CDProducto prod)
+        {
+            string resul = "";
+            SqlConnection conexion = new SqlConnection();
+            try
+            {
+                conexion.ConnectionString = Conexion.Conn;
+                conexion.Open();
+                SqlCommand Cmd = new SqlCommand("speliminar_producto", conexion);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("@idproducto", prod.Idproducto);
+                resul = Cmd.ExecuteNonQuery() == 1 ? "OK" : "No se pudo eliminar el registro";
+            }
+            catch (Exception ex)
+            {
+                resul = ex.Message;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+            return resul;
+        }
+
+        public DataTable BuscarNombre(CDProducto prod)
+        {
+            DataTable resul = new DataTable("producto");
+            SqlConnection conexion = new SqlConnection();
+            try
+            {
+                conexion.ConnectionString = Conexion.Conn;
+                SqlCommand Cmd = new SqlCommand("spbuscar_producto_nombre", conexion);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("@nombre", prod.Buscar);
+                SqlDataAdapter SqlDat = new SqlDataAdapter(Cmd);
+                SqlDat.Fill(resul);
+            }
+            catch (Exception ex)
+            {
+                resul = null;
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+            return resul;
+        }
+
+        public DataTable BuscarCodigo(CDProducto prod)
+        {
+            DataTable resul = new DataTable("producto");
+            SqlConnection conexion = new SqlConnection();
+            try
+            {
+                conexion.ConnectionString = Conexion.Conn;
+                SqlCommand Cmd = new SqlCommand("spbuscar_producto_codigo", conexion);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("@codigo", prod.Buscar);
+                SqlDataAdapter SqlDat = new SqlDataAdapter(Cmd);
+                SqlDat.Fill(resul);
+            }
+            catch (Exception ex)
+            {
+                resul = null;
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+            return resul;
+        }
     }
 }

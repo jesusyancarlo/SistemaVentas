@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class FrmListadoCategoria
+    partial class FrmListadoProducto
     {
         /// <summary>
         /// Required designer variable.
@@ -33,6 +33,9 @@
             this.btnnuevo = new System.Windows.Forms.Button();
             this.dlistado = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbtnnombre = new System.Windows.Forms.RadioButton();
+            this.rbtncodigo = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.btnsalir = new System.Windows.Forms.Button();
             this.btnbuscar = new System.Windows.Forms.Button();
@@ -40,6 +43,7 @@
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dlistado)).BeginInit();
             this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btneliminar
@@ -47,7 +51,7 @@
             this.btneliminar.Location = new System.Drawing.Point(706, 407);
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(75, 23);
-            this.btneliminar.TabIndex = 13;
+            this.btneliminar.TabIndex = 19;
             this.btneliminar.Text = "&Eliminar";
             this.btneliminar.UseVisualStyleBackColor = true;
             this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
@@ -57,7 +61,7 @@
             this.btneditar.Location = new System.Drawing.Point(625, 407);
             this.btneditar.Name = "btneditar";
             this.btneditar.Size = new System.Drawing.Size(75, 23);
-            this.btneditar.TabIndex = 12;
+            this.btneditar.TabIndex = 18;
             this.btneditar.Text = "&Editar";
             this.btneditar.UseVisualStyleBackColor = true;
             this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
@@ -67,10 +71,9 @@
             this.btnnuevo.Location = new System.Drawing.Point(544, 407);
             this.btnnuevo.Name = "btnnuevo";
             this.btnnuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnnuevo.TabIndex = 11;
-            this.btnnuevo.Text = "&Nuevo";
-            this.btnnuevo.UseVisualStyleBackColor = true;
-            this.btnnuevo.Click += new System.EventHandler(this.btnnuevo_Click);
+            this.btnnuevo.TabIndex = 20;
+            this.btnnuevo.Text = "Nuevo";
+            this.btnnuevo.Click += new System.EventHandler(this.btnuevo_Click);
             // 
             // dlistado
             // 
@@ -80,10 +83,11 @@
             this.dlistado.RowHeadersWidth = 51;
             this.dlistado.RowTemplate.Height = 24;
             this.dlistado.Size = new System.Drawing.Size(758, 256);
-            this.dlistado.TabIndex = 10;
+            this.dlistado.TabIndex = 16;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnsalir);
             this.panel1.Controls.Add(this.btnbuscar);
@@ -91,20 +95,52 @@
             this.panel1.Location = new System.Drawing.Point(23, 52);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(758, 87);
-            this.panel1.TabIndex = 9;
+            this.panel1.TabIndex = 15;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbtnnombre);
+            this.groupBox1.Controls.Add(this.rbtncodigo);
+            this.groupBox1.Location = new System.Drawing.Point(15, 15);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(201, 57);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Criterio de búsqueda";
+            // 
+            // rbtnnombre
+            // 
+            this.rbtnnombre.AutoSize = true;
+            this.rbtnnombre.Location = new System.Drawing.Point(96, 21);
+            this.rbtnnombre.Name = "rbtnnombre";
+            this.rbtnnombre.Size = new System.Drawing.Size(77, 20);
+            this.rbtnnombre.TabIndex = 17;
+            this.rbtnnombre.TabStop = true;
+            this.rbtnnombre.Text = "Nombre";
+            this.rbtnnombre.UseVisualStyleBackColor = true;
+            // 
+            // rbtncodigo
+            // 
+            this.rbtncodigo.AutoSize = true;
+            this.rbtncodigo.Location = new System.Drawing.Point(6, 21);
+            this.rbtncodigo.Name = "rbtncodigo";
+            this.rbtncodigo.Size = new System.Drawing.Size(72, 20);
+            this.rbtncodigo.TabIndex = 16;
+            this.rbtncodigo.TabStop = true;
+            this.rbtncodigo.Text = "Código";
+            this.rbtncodigo.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(34, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 16);
+            this.label2.Size = new System.Drawing.Size(0, 16);
             this.label2.TabIndex = 14;
-            this.label2.Text = "Buscar categoría";
             // 
             // btnsalir
             // 
-            this.btnsalir.Location = new System.Drawing.Point(620, 30);
+            this.btnsalir.Location = new System.Drawing.Point(668, 33);
             this.btnsalir.Name = "btnsalir";
             this.btnsalir.Size = new System.Drawing.Size(75, 23);
             this.btnsalir.TabIndex = 3;
@@ -114,7 +150,7 @@
             // 
             // btnbuscar
             // 
-            this.btnbuscar.Location = new System.Drawing.Point(539, 30);
+            this.btnbuscar.Location = new System.Drawing.Point(587, 33);
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(75, 23);
             this.btnbuscar.TabIndex = 2;
@@ -124,7 +160,7 @@
             // 
             // txtbuscar
             // 
-            this.txtbuscar.Location = new System.Drawing.Point(183, 30);
+            this.txtbuscar.Location = new System.Drawing.Point(222, 34);
             this.txtbuscar.Name = "txtbuscar";
             this.txtbuscar.Size = new System.Drawing.Size(350, 22);
             this.txtbuscar.TabIndex = 1;
@@ -135,11 +171,11 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(19, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 20);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Categoría";
+            this.label1.Size = new System.Drawing.Size(94, 20);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Productos";
             // 
-            // FrmListadoCategoria
+            // FrmListadoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -150,11 +186,14 @@
             this.Controls.Add(this.dlistado);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Name = "FrmListadoCategoria";
-            this.Text = "FrmListadoCategoria";
+            this.Name = "FrmListadoProducto";
+            this.Text = "FrmListadoProducto";
+            this.Load += new System.EventHandler(this.FrmListadoProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dlistado)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,10 +206,13 @@
         public System.Windows.Forms.Button btnnuevo;
         private System.Windows.Forms.DataGridView dlistado;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button btnsalir;
         public System.Windows.Forms.Button btnbuscar;
         public System.Windows.Forms.TextBox txtbuscar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rbtnnombre;
+        private System.Windows.Forms.RadioButton rbtncodigo;
     }
 }
